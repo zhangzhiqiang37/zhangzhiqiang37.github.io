@@ -3,7 +3,7 @@
  * @author zhangzhiqiang(zhiqiangzhang37@gmail.com)
  */
 
-navigator.serviceWorker && navigator.serviceWorker.register('/service-worker.js').then(function () {
+navigator.serviceWorker && navigator.serviceWorker.register('/pwa_lib/service-worker.js').then(function () {
     navigator.serviceWorker.addEventListener('message', function (e) {
 
         // service-worker.js 如果更新成功会 postMessage 给页面，内容为 'sw.update'
