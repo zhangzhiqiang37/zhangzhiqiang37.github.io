@@ -1,4 +1,4 @@
-var CACHE_KEY = 'hexo-pwa-cache-' + self.registration ? self.registration.scope : '';
+var CACHE_KEY = 'hexo-pwa-cache-' + (self.registration ? self.registration.scope : '');
 
 function getCache(request) {
     return caches.match(request).then(function (response) {
@@ -19,7 +19,7 @@ function fetchAndCache(request) {
         .then(function (response) {
 
             // 远程数据获取失败
-            if (!response || response.status !== 200) {
+            if (!response) {
                 return getCache(request);
             }
 
