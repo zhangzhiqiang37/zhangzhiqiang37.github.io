@@ -44,7 +44,7 @@ self.addEventListener('fetch', function (evt) {
     var request = evt.request;
     evt.respondWith(
         fetch(request)
-            .then(function (response) {
+            .then(function (response) {console.log(response)
 
                 // 远程数据获取失败
                 if (!response || response.status !== 200) {
