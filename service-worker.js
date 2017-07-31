@@ -34,7 +34,7 @@ function fetchAndCache(request) {
 }
 
 // 安装阶段跳过等待，直接进入 active
-self.addEventListener('install', function (event) {console.log('install')
+self.addEventListener('install', function (event) {
     event.waitUntil(self.skipWaiting());
 });
 
