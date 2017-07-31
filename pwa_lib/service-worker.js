@@ -1,4 +1,4 @@
-var cacheKey = 'hexo-pwa-cache-' + self.registration ? self.registration.scope : '';
+var CACHE_KEY = 'hexo-pwa-cache-' + self.registration ? self.registration.scope : '';
 
 function getCache(request) {
     return caches.match(request).then(function (response) {
@@ -7,6 +7,38 @@ function getCache(request) {
         }
     });
 }
+
+function saveToCache(req, res) {
+    caches.open(CACHE_KEY).then(function (cache) {
+        cache.put(req, res);
+    });
+}
+
+// 安装阶段跳过等待，直接进入 active
+self.addEventListener('install', function (event) {
+    event.waitUntil(self.skipWaiting());
+});
+
+self.addEventListener('activate', function (evnet) {
+    event.waitUntil(
+        Promise.all([
+
+            // 更新客户端
+            self.clients.claim(),
+
+            // 清理旧版本
+            caches.keys().then(function (cacheList) {
+                return Promise.all(
+                    cacheList.map(function (cacheName) {
+                        if (cacheName !== CACHE_KEY) {
+                            return caches.delete(cacheName);
+                        }
+                    })
+                );
+            })
+        ])
+    );
+});
 
 self.addEventListener('fetch', function (evt) {
     var request = evt.request;
@@ -20,12 +52,11 @@ self.addEventListener('fetch', function (evt) {
                 }
 
                 var responseClone = response.clone();
-                caches.open(cacheKey).then(function (cache) {
-                    cache.put(request, responseClone);
-                });
+                saveToCache(request, responseClone);
                 return response;
             })
             .catch(function (err) {
+                // 远程数据获取失败
                 return getCache(request);
             })
     );
