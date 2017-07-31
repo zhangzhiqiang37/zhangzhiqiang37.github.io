@@ -15,7 +15,7 @@ function saveToCache(req, res) {
 }
 
 // 安装阶段跳过等待，直接进入 active
-self.addEventListener('install', function (event) {console.log(install)
+self.addEventListener('install', function (event) {console.log('install')
     event.waitUntil(self.skipWaiting());
 });
 
