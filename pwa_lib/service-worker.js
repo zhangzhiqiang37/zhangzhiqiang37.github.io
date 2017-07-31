@@ -19,7 +19,7 @@ self.addEventListener('install', function (event) {
     event.waitUntil(self.skipWaiting());
 });
 
-self.addEventListener('activate', function (evnet) {
+self.addEventListener('activate', function (event) {
     event.waitUntil(
         Promise.all([
 
