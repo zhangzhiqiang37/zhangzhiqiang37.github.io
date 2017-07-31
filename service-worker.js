@@ -14,6 +14,25 @@ function saveToCache(req, res) {
     });
 }
 
+function fetchAndCache(request) {
+    return fetch(request)
+        .then(function (response) {
+
+            // 远程数据获取失败
+            if (!response || response.status !== 200) {
+                return getCache(request);
+            }
+
+            var responseClone = response.clone();
+            saveToCache(request, responseClone);
+            return response;
+        })
+        .catch(function (err) {
+            // 远程数据获取失败
+            return getCache(request);
+        });
+}
+
 // 安装阶段跳过等待，直接进入 active
 self.addEventListener('install', function (event) {console.log('install')
     event.waitUntil(self.skipWaiting());
@@ -40,24 +59,8 @@ self.addEventListener('activate', function (event) {
     );
 });
 
-self.addEventListener('fetch', function (evt) {console.log(evt)
+self.addEventListener('fetch', function (evt) {
     var request = evt.request;
-    evt.respondWith(
-        fetch(request)
-            .then(function (response) {console.log(response)
-
-                // 远程数据获取失败
-                if (!response || response.status !== 200) {
-                    return getCache(request);
-                }
-
-                var responseClone = response.clone();
-                saveToCache(request, responseClone);
-                return response;
-            })
-            .catch(function (err) {
-                // 远程数据获取失败
-                return getCache(request);
-            })
-    );
+    // 网络优先（成功则缓存），失败才从缓存获取
+    evt.respondWith(fetchAndCache(request));
 });
