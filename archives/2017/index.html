@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  <title>Archives: 2017 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
-
+    <meta charset="utf-8">
+    
+    <title>Archives: 2017 | Lavas</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon-152x152.png">
+    <!-- Add to home screen for Windows -->
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="manifest" href="/manifest.json">
+    
+        <link rel="icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
+    <div id="container">
+        <transition name="slide-left">
+            <div id="wrap" :key="$route.fullPath">
+                <header id="header">
   <div id="banner"></div>
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">Lavas</a>
       </h1>
       
     </div>
@@ -58,8 +52,11 @@
     </div>
   </div>
 </header>
-      <div class="outer">
-        <section id="main">
+                <!-- 新html片段容器 -->
+                <router-view></router-view>
+                <div class="outer main-outer" style="display: none">
+                    <section id="main">
+                        
   
   
     
@@ -112,9 +109,11 @@
     </div></section>
   
 
-</section>
-        
-          <aside id="sidebar">
+
+
+                    </section>
+                    
+                        <aside id="sidebar">
   
     
 
@@ -154,29 +153,30 @@
 
   
 </aside>
-        
-      </div>
-      <footer id="footer">
+                    
+                </div>
+                <footer id="footer">
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 John Doe<br>
+      &copy; 2017 Lavas<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
+            </div>
+        </transition>
+        <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
   
 </nav>
-    
+        
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
+<script src="/js/jquery.min.js"></script>
+<script src="/js/require.js"></script>
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   <script src="/fancybox/jquery.fancybox.pack.js"></script>
@@ -184,6 +184,18 @@
 
 <script src="/js/script.js"></script>
 
-  </div>
+<script>
+  require(['js/app']);
+</script>
+
+
+<script>
+  navigator.serviceWorker && navigator.serviceWorker.register('/service-worker.js');
+</script>
+
+
+    </div>
 </body>
 </html>
+
+
