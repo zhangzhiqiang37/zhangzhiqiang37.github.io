@@ -9,36 +9,6 @@ body:after {
 body:after {
   clear: both;
 }
-.wrap {
-  -webkit-transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
-  -moz-transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
-  -ms-transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
-  transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
-}
-.wrap.slide-left-enter {
-  -webkit-transform: translate(100%, 0);
-  -moz-transform: translate(100%, 0);
-  -ms-transform: translate(100%, 0);
-  transform: translate(100%, 0);
-}
-.wrap.slide-right-enter {
-  -webkit-transform: translate(-100%, 0);
-  -moz-transform: translate(-100%, 0);
-  -ms-transform: translate(-100%, 0);
-  transform: translate(-100%, 0);
-}
-.wrap.slide-right-leave-active {
-  -webkit-transform: translate(100%, 0);
-  -moz-transform: translate(100%, 0);
-  -ms-transform: translate(100%, 0);
-  transform: translate(100%, 0);
-}
-.wrap.slide-left-leave-active {
-  -webkit-transform: translate(-100%, 0);
-  -moz-transform: translate(-100%, 0);
-  -ms-transform: translate(-100%, 0);
-  transform: translate(-100%, 0);
-}
 html,
 body,
 div,
@@ -1307,6 +1277,36 @@ pre .javascript .function {
   color: #c9c;
 }
 @media screen and (max-width: 479px) {
+  .wrap {
+    -webkit-transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
+    -moz-transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
+    -ms-transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: all 0.4s cubic-bezier(0.55, 0, 0.1, 1);
+  }
+  .wrap.slide-left-enter {
+    -webkit-transform: translate(100%, 0);
+    -moz-transform: translate(100%, 0);
+    -ms-transform: translate(100%, 0);
+    transform: translate(100%, 0);
+  }
+  .wrap.slide-right-enter {
+    -webkit-transform: translate(-100%, 0);
+    -moz-transform: translate(-100%, 0);
+    -ms-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
+  }
+  .wrap.slide-right-leave-active {
+    -webkit-transform: translate(100%, 0);
+    -moz-transform: translate(100%, 0);
+    -ms-transform: translate(100%, 0);
+    transform: translate(100%, 0);
+  }
+  .wrap.slide-left-leave-active {
+    -webkit-transform: translate(-100%, 0);
+    -moz-transform: translate(-100%, 0);
+    -ms-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
+  }
   #mobile-nav {
     position: absolute;
     top: 0;
