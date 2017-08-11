@@ -61,6 +61,12 @@ self.addEventListener('activate', function (event) {
 
 self.addEventListener('fetch', function (evt) {
     var request = evt.request;
+    var url = new URL(request.url);
+    // 图片文件不做缓存处理
+    if (url.href.match(/.*\.(png|jpg|jpeg|gif)(\?.*)?/)) {
+        evt.respondWith(fetch(request));
+        return;
+    }
     // 网络优先（成功则缓存），失败才从缓存获取
     evt.respondWith(fetchAndCache(request));
 });

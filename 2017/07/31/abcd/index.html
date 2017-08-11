@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hello World | Lavas</title>
+    <title>abcd | Lavas</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,18 +11,19 @@
     <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon-152x152.png">
     <!-- Add to home screen for Windows -->
     <meta name="msapplication-TileColor" content="#000000">
-    <link rel="manifest" href="/manifest.json">
+    
+        <link rel="manifest" href="/manifest.json">
+    
     
         <link rel="icon" href="/favicon.png">
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
+
 <body>
     <div id="container">
-        <transition name="slide-left">
-            <div id="wrap" :key="$route.fullPath">
-                <header id="header">
+        <header id="header">
   <div id="banner"></div>
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
@@ -42,8 +43,6 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
@@ -52,11 +51,17 @@
     </div>
   </div>
 </header>
-                <!-- 新html片段容器 -->
-                <router-view></router-view>
-                <div class="outer main-outer" style="display: none">
-                    <section id="main">
-                        <article id="post-abcd" class="article article-type-post" itemscope itemprop="blogPost">
+
+        <div class="transition-wrapper" :class="{animation: animationActive}">
+            <transition :name="pageTransitionName"
+                @before-enter="handleBeforeEnter"
+                @after-enter="handleAfterEnter">
+                <div class="wrap" :key="$route.fullPath">
+                    <!-- 新html片段容器 -->
+                    <router-view></router-view>
+                    <div class="outer main-outer" style="display: none">
+                        <section id="main">
+                            <article id="post-abcd" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/07/31/abcd/" class="article-date">
   <time datetime="2017-07-31T07:22:34.000Z" itemprop="datePublished">2017-07-31</time>
@@ -70,15 +75,17 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      abcd
     </h1>
   
 
+
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+    
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -88,10 +95,11 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
-      
-    </div>
+        
+      </div>
+    
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/31/abcd/" data-id="cj5w4z5810001a452db9ihrsr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/31/abcd/" data-id="cj679ltey0002c852hf5fgkh4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -99,6 +107,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2017/08/04/aaaaaa/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          aaaaaa
+        
+      </div>
+    </a>
   
   
     <a href="/2017/07/17/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
@@ -113,9 +130,10 @@
 
 
 
-                    </section>
-                    
-                        <aside id="sidebar">
+
+                        </section>
+                        
+                            <aside id="sidebar">
   
     
 
@@ -129,7 +147,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
     </div>
   </div>
 
@@ -142,7 +160,15 @@
       <ul>
         
           <li>
-            <a href="/2017/07/31/abcd/">Hello World</a>
+            <a href="/2017/08/04/fffff/">fffff</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/04/aaaaaa/">aaaaaa</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/31/abcd/">abcd</a>
           </li>
         
           <li>
@@ -155,9 +181,9 @@
 
   
 </aside>
-                    
-                </div>
-                <footer id="footer">
+                        
+                    </div>
+                    <footer id="footer">
   
   <div class="outer">
     <div id="footer-info" class="inner">
@@ -166,8 +192,9 @@
     </div>
   </div>
 </footer>
-            </div>
-        </transition>
+                </div>
+            </transition>
+        </div>
         <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
@@ -175,19 +202,28 @@
     <a href="/archives" class="mobile-nav-link">Archives</a>
   
 </nav>
+<div class="mask"></div>
+
         
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/require.js"></script>
+<script src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/require.js"></script>
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
-
 <script>
-  require(['js/app']);
+  require(['js/app'], function (app) {
+    
+      var needPageTransition = true;
+    
+    
+    app({
+      needPageTransition: needPageTransition
+    });
+    require(['js/script']);
+  });
 </script>
 
 
