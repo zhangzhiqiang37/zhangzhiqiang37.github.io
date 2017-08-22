@@ -1306,9 +1306,6 @@ pre .javascript .function {
     padding: 15px 20px;
     font-weight: bold;
   }
-  .mobile-nav-link:hover {
-    color: #666;
-  }
   #header {
     height: 52px;
     line-height: 52px;
