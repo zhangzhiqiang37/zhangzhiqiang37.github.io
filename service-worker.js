@@ -1,3 +1,9 @@
+/**
+ * @file app.js
+ * @author zhangzhiqiang(zhiqiangzhang37@gmail.com)
+ */
+
+
 var CACHE_KEY = 'hexo-pwa-cache-' + (self.registration ? self.registration.scope : '');
 
 function getCache(request) {

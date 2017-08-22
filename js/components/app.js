@@ -1,6 +1,9 @@
-define(function (require) {
+/**
+ * @file app.js
+ * @author zhangzhiqiang(zhiqiangzhang37@gmail.com)
+ */
 
-    var EventBus = require('../lib/event-bus');
+define(function (require) {
 
     return {
         template: $('body').html(),
@@ -8,32 +11,16 @@ define(function (require) {
             return {
                 pageTransitionName: '',
                 animationActive: false,
-                headerWidth: ''
+                headerWidth: '',
+                mobileNavOn: false
             };
         },
-        created: function () {
-            var me = this;
-
-            EventBus.$on('SET_PAGE_TRANSITION_NAME', function (transitionName) {
-                me.pageTransitionName = transitionName;
-            });
-
-            // 代理所有链接的点击，将站内重定向都改成hash定位
-            $(document.body).on('click', 'a', function (e) {
-                if (this.origin === location.origin) {
-                    location.href = '#' + this.href.replace(location.origin, '');
-                    return false;
-                }
-            });
-
-        },
         methods: {
-            handleBeforeEnter: function () {
-                this.animationActive = true;
+            showMainNav: function () {
+                this.mobileNavOn = true;
             },
-            handleAfterEnter: function () {
-                this.animationActive = false;
-                EventBus.$emit('AFTER_ENTER');
+            hideNav: function () {
+                this.mobileNavOn = false;
             }
         }
     };
