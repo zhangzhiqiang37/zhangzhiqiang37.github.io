@@ -1365,7 +1365,7 @@ pre .javascript .function {
   text-decoration: none;
   padding: 8px 0;
   display: inline-block;
-  line-height: 14px;
+  line-height: 16px;
 }
 .widget a:hover {
   text-decoration: underline;
