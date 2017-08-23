@@ -23,6 +23,14 @@ define(function (require) {
                 mainOuter.style.display = '';
                 me.html = mainOuter.outerHTML;
             },
+            setTitle: function (title) {
+
+                if (!title) {
+                    return;
+                }
+
+                document.title = title;
+            },
             getPageContent: function () {
                 var me = this;
 
@@ -40,17 +48,20 @@ define(function (require) {
                         return;
                     }
 
-                    var body = /<body>(.|\n)*<\/body>/.exec(html)[0];
+                    var bodyMatchRes = /<body>(.|\n)*?<\/body>/.exec(html);
+                    var titleMatchRes = /<title>(.*?)<\/title>/.exec(html);
 
-                    if (!body) {
+                    if (!bodyMatchRes) {
                         return;
                     }
 
+                    var body = bodyMatchRes[0];
                     body = body.replace(/<body>(\s|\n)*/, '<body>');
                     body = body.replace(/(\s|\n)*<\/body>/, '</body>');
                     var $body = $(body);
 
                     me.insertContent($body);
+                    me.setTitle(titleMatchRes ? titleMatchRes[1] : '');
                     setTimeout(function () {
                         me.setScroll();
                     }, 0);
