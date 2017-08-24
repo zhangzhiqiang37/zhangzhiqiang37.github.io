@@ -250,13 +250,10 @@ a {
 .article-category-link,
 .widget-title {
   text-decoration: none;
-  text-transform: uppercase;
   letter-spacing: 2px;
   color: #999;
   margin-bottom: 1em;
   line-height: 1em;
-  text-shadow: 0 1px #fff;
-  font-weight: bold;
   text-align: center;
 }
 .article-inner,
@@ -965,15 +962,27 @@ a.article-title:hover {
 .archives:after {
   clear: both;
 }
-.archive-year-wrap {
+.block-title {
   margin: 0 13px 20px 13px;
-  font-size: 18px;
+  font-size: 22px;
   color: #8e90da;
   font-weight: bold;
-  border-left: solid 4px;
   padding-left: 13px;
+  line-height: 32px;
+}
+.archive-category-title {
   background: #f2f5f6;
-  line-height: 34px;
+  border-left: solid 4px;
+}
+.archive-archive-title {
+  color: #555;
+}
+.archive-archive-title:before {
+  content: "\f073";
+  font-family: FontAwesome;
+  margin-right: 10px;
+  font-weight: normal;
+  color: #999;
 }
 .archive-article {
   -webkit-column-break-inside: avoid;
@@ -1094,6 +1103,12 @@ a.article-title:hover {
   background: #efefef;
 }
 .article-list .article .article-date {
+  font-weight: normal;
+}
+.article-list .archives .article-title {
+  padding-top: 0;
+}
+.article-list .archives .article-title h1 {
   font-weight: normal;
 }
 #footer {
@@ -1363,6 +1378,22 @@ pre .javascript .function {
 .widget-wrap {
   margin: 36px 13px;
 }
+.widget-title:before {
+  font-family: FontAwesome;
+  margin-right: 6px;
+}
+.widget-title.widget-title-archive:before {
+  content: "\f114";
+}
+.widget-title.widget-title-category:before {
+  content: "\f022";
+}
+.widget-title.widget-title-tag "\f016":before {
+  content: "\f114";
+}
+.widget-title.widget-title-recent:before {
+  content: "\f016";
+}
 .widget {
   color: #777;
   background: #f2f5f6;
@@ -1371,7 +1402,7 @@ pre .javascript .function {
   border-radius: 3px;
 }
 .widget a {
-  color: #666;
+  color: #999;
   text-decoration: none;
   padding: 8px 0;
   display: inline-block;
