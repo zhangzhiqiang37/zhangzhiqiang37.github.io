@@ -22,20 +22,31 @@
 
 
 <body>
-    <div id="container" :class="{'mobile-nav-on': mobileNavOn}">
+    <div id="container" :class="{'mobile-nav-on': mobileNavOn}" @click="hideNav">
         <header id="header">
     <div id="header-outer">
         <div id="header-title">
             <h1 id="logo">Lavas</h1>
         </div>
         <nav id="main-nav">
-            <a id="main-nav-toggle" class="nav-icon" @click="showMainNav"></a>
+            <a id="main-nav-toggle" class="nav-icon" @click="showMainNav"><i class="material-icons">list</i></a>
 
             
-                <a class="main-nav-link" href="/">首页</a>
+                <a class="main-nav-link " href="/">首页</a>
             
-                <a class="main-nav-link" href="/archives/">归档</a>
+                <a class="main-nav-link " href="/archives/">归档</a>
             
+
+            <nav id="mobile-nav">
+
+  
+        <a href="/" class="mobile-nav-link">首页</a>
+  
+        <a href="/archives/" class="mobile-nav-link">归档</a>
+  
+
+</nav>
+
 
         </nav>
         <nav id="sub-nav">
@@ -80,15 +91,16 @@
             </header>
         
         <div class="article-meta">
-            
-    <div class="article-category">
-        <a class="article-category-link" href="/categories/m2m/">m2m</a>
-    </div>
-
-
             <span class="article-date">
     <time datetime="2017-07-31T07:22:34.000Z" itemprop="datePublished">2017/07/31</time>
 </span>
+
+            
+    <div class="article-category">
+        <i class="material-icons">label</i>
+        <a class="article-category-link" href="/categories/m2m/">m2m</a>
+    </div>
+
 
         </div>
 
@@ -120,7 +132,7 @@
         
             <a href="/2017/07/31/abcd副本 2/" id="article-nav-newer" class="article-nav-link-wrap">
                 <div class="article-nav-title">
-                    <label class="fa-arrow-left"></label>
+                    <i class="material-icons fa-arrow-left">arrow_back</i>
                     <div class="article-nav-title-text">
                         
                             please don&#39;t go away
@@ -138,7 +150,7 @@
                             Oh my pretty pretty
                         
                     </div>
-                    <label class="fa-arrow-right"></label>
+                    <i class="material-icons fa-arrow-right">arrow_forward</i>
                 </div>
             </a>
         
@@ -160,7 +172,7 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title widget-title-recent">最新文章</h3>
+        <h3 class="widget-title widget-title-recent"><i class="material-icons">insert_drive_file</i>最新文章</h3>
         <div class="widget">
             <ul>
 
@@ -170,11 +182,11 @@
                     </li>
                 
                     <li>
-                        <a href="/2017/08/04/fffff副本/">请问有卖半岛铁盒吗</a>
+                        <a href="/2017/08/04/fffff副本 7/">take me to your heart, take me to your soul</a>
                     </li>
                 
                     <li>
-                        <a href="/2017/08/04/fffff副本 7/">take me to your heart, take me to your soul</a>
+                        <a href="/2017/08/04/fffff副本/">请问有卖半岛铁盒吗</a>
                     </li>
                 
                     <li>
@@ -182,7 +194,7 @@
                     </li>
                 
                     <li>
-                        <a href="/2017/08/04/fffff副本 5/">你说过牵了手就算约定，但亲爱的那并不是爱情</a>
+                        <a href="/2017/08/04/fffff副本 3/">为你翘课的那一天，教室的那一间</a>
                     </li>
                 
 
@@ -194,7 +206,7 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title widget-title-category">分类</h3>
+        <h3 class="widget-title widget-title-category"><i class="material-icons">assignment</i>分类</h3>
         <div class="widget">
             <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Avril-Lavigne/">Avril Lavigne</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Backstreet-Boys/">Backstreet Boys</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Twins/">Twins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/m2m/">m2m</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/周杰伦/">周杰伦</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/张韶涵/">张韶涵</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/田馥甄/">田馥甄</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/萧亚轩/">萧亚轩</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/陈奕迅/">陈奕迅</a><span class="category-list-count">1</span></li></ul>
         </div>
@@ -204,7 +216,7 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title widget-title-tag">标签</h3>
+        <h3 class="widget-title widget-title-tag"><i class="material-icons">star_border</i>标签</h3>
         <div class="widget">
             <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国风/">中国风</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/张韶涵/">张韶涵</a><span class="tag-list-count">1</span></li></ul>
         </div>
@@ -214,7 +226,7 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title widget-title-archive">归档</h3>
+        <h3 class="widget-title widget-title-archive"><i class="material-icons">folder_open</i>归档</h3>
         <div class="widget">
             <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">2017/08</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">2017/07</a><span class="archive-list-count">16</span></li></ul>
         </div>
@@ -231,24 +243,13 @@
             <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-          &copy; 2017 <a href="https://lavas.baidu.com" target="_blank">Lavas</a><br>
+          Copyright &copy;2017 <a href="https://lavas.baidu.com" target="_blank">Lavas</a><br>
           Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
         </div>
     </div>
 </footer>
 
         </div>
-        <nav id="mobile-nav">
-
-  
-        <a href="/" class="mobile-nav-link" @click="hideNav">首页</a>
-  
-        <a href="/archives/" class="mobile-nav-link" @click="hideNav">归档</a>
-  
-
-</nav>
-<div class="mask" @click="hideNav"></div>
-
         
 
 <script src="/js/lib/jquery.min.js"></script>

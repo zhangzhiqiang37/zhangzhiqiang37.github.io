@@ -6,6 +6,7 @@
 define(function (require) {
     var pageScrollTop = {};
     var firstPaint = true;
+    var activeClass = 'active';
 
     return {
         template: '<div v-html="html" class="page-component"></div>',
@@ -84,6 +85,23 @@ define(function (require) {
             this.setScroll(0);
             next();
             this.getPageContent();
+
+            // 处理main-nav
+            var $mainNavLink = $('.main-nav-link');
+            var toPath = to.path;
+            $mainNavLink.removeClass(activeClass);
+            if (toPath === '/') {
+                $mainNavLink.eq(0).addClass(activeClass);
+            }
+            else {
+                for (var i = 0; i < $mainNavLink.length; i++) {
+                    var pathName = $mainNavLink[i].pathname;
+                    if (pathName !== '/' && toPath.indexOf(pathName) !== -1) {
+                        $mainNavLink.eq(i).addClass(activeClass);
+                    }
+                };
+            }
+
         }
     };
 });

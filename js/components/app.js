@@ -16,7 +16,10 @@ define(function (require) {
             };
         },
         methods: {
-            showMainNav: function () {
+            showMainNav: function (e) {
+                if (!this.mobileNavOn) {
+                    e.stopPropagation();
+                }
                 this.mobileNavOn = true;
             },
             hideNav: function () {
