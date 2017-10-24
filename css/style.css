@@ -1206,7 +1206,7 @@ pre .javascript .function {
 @media screen and (max-width: 479px) {
   #mobile-nav {
     position: absolute;
-    top: 100%;
+    top: 110%;
     left: 13px;
     background: #fff;
     border-right: 1px solid #fff;
