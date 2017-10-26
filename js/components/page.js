@@ -78,7 +78,7 @@ define(function (require) {
             this.getPageContent();
 
         },
-        beforeRouteUpdate: function (to, from, next) {
+        beforeRouteUpdate: function (to, from, next) {console.log(99)
             this.html = '';
             firstPaint = false;
             pageScrollTop[this.$route.path] = document.body.scrollTop || document.documentElement.scrollTop;
