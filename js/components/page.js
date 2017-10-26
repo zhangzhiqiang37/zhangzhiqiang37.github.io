@@ -72,13 +72,32 @@ define(function (require) {
             setScroll: function (scrollTop) {
                 scrollTop = scrollTop !== undefined ? scrollTop : pageScrollTop[this.$route.path];
                 document.body.scrollTop = document.documentElement.scrollTop = scrollTop || 0;
+            },
+            setNavActive: function (to) {
+                // 处理main-nav
+                var $mainNavLink = $('.main-nav-link');
+                var toPath = to.path;
+                $mainNavLink.removeClass(activeClass);
+                if (toPath === '/') {
+                    $mainNavLink.eq(0).addClass(activeClass);
+                }
+                else {
+                    for (var i = 0; i < $mainNavLink.length; i++) {
+                        var pathName = $mainNavLink[i].pathname;
+                        if (pathName !== '/' && toPath.indexOf(pathName) !== -1) {
+                            $mainNavLink.eq(i).addClass(activeClass);
+                        }
+                    };
+                }
             }
         },
         created: function () {
             this.getPageContent();
-
         },
-        beforeRouteUpdate: function (to, from, next) {console.log(99)
+        mounted: function () {
+            this.setNavActive({path: location.pathname});
+        },
+        beforeRouteUpdate: function (to, from, next) {
             this.html = '';
             firstPaint = false;
             pageScrollTop[this.$route.path] = document.body.scrollTop || document.documentElement.scrollTop;
@@ -86,21 +105,7 @@ define(function (require) {
             next();
             this.getPageContent();
 
-            // 处理main-nav
-            var $mainNavLink = $('.main-nav-link');
-            var toPath = to.path;
-            $mainNavLink.removeClass(activeClass);
-            if (toPath === '/') {
-                $mainNavLink.eq(0).addClass(activeClass);
-            }
-            else {
-                for (var i = 0; i < $mainNavLink.length; i++) {
-                    var pathName = $mainNavLink[i].pathname;
-                    if (pathName !== '/' && toPath.indexOf(pathName) !== -1) {
-                        $mainNavLink.eq(i).addClass(activeClass);
-                    }
-                };
-            }
+            this.setNavActive(to);
 
         }
     };

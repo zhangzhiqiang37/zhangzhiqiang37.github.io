@@ -12,12 +12,10 @@ define(function (require) {
 
     Vue.use(VueRouter);
 
-    function init(opt) {
+    function init() {
 
         var options = $.extend({
-            router: router({
-                needPageTransition: opt.needPageTransition
-            })
+            router: router()
         }, App);
         new Vue(options).$mount('#container');
     }
